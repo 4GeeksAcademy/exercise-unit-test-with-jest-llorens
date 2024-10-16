@@ -14,18 +14,18 @@ test('adds 14 + 9 to equal 23', () => {
 
 test("One euro should be 1.07 dollars", function() {
     const dollars = fromEuroToDollar(3.5);
-    const expected = 3.5 * 1.07;
-    expect(fromEuroToDollar(3.5)).toBe(3.745);
+    const expected = Math.round(3.5 * 1.07 * 100) / 100;
+    expect(dollars).toBe(expected);
 })
 
-test("Esperado que 10 dolares sean, x yenes", function(){
+test("Esperado que 10 dolares sean, 1462.62 yenes", function(){
     const yenes = fromDollarToYen(10);
-    const expected = ((10 * 1 / 1.07) * 156.5) / 1;
-    expect(fromDollarToYen(10)).toBe(expected);
+    const expected = Math.round(((10 / 1.07) * 156.5) * 100) / 100;
+    expect(yenes).toBe(expected);
 })
 
-test("Esperando que 1000 yenes sean, x Pound", function(){
+test("Esperando que 1000 yenes sean, 5.56 Pound", function(){
     const pounds = fromYenToPound(1000);
-    const expected = ((1000 * 1 / 156.5) * 0.87) / 1;
-    expect(fromYenToPound(1000)).toBe(expected);
+    const expected = Math.round(((1000 / 156.5) * 0.87) * 100) / 100;
+    expect(pounds).toBe(expected);
 })

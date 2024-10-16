@@ -10,16 +10,19 @@ let oneEuroIs = {
 
 const fromDollarToYen = (dollar) => {
     let value_to_euro = dollar / oneEuroIs.USD;
-    return value_to_euro * oneEuroIs.JPY;
+    let yen = value_to_euro * oneEuroIs.JPY;
+    return Math.round(yen * 100) / 100;
 }
 
 const fromEuroToDollar = (euro) => {
-    return (euro * oneEuroIs.USD) / 1;
+    let dollar = euro * oneEuroIs.USD;
+    return Math.round(dollar * 100) / 100;
 }
 
 const fromYenToPound = (yen) => {
-    let value_to_euro = (yen * 1) / oneEuroIs.JPY;
-    return (value_to_euro * oneEuroIs.GBP) / 1;
+    let value_to_euro = yen / oneEuroIs.JPY;
+    let pound = value_to_euro * oneEuroIs.GBP;
+    return Math.round(pound * 100) / 100;
 }
 
 module.exports = {sum, fromDollarToYen, fromEuroToDollar, fromYenToPound};
